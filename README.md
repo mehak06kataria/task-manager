@@ -101,7 +101,7 @@ src/
   ├── utils/             # Utility functions
   └── env.ts             # Environment variable handler
 
-Live Link : 👉 https://d3w2rrwlqh0o7h.cloudfront.net/signup
+Live Link : 👉 https://dr2mvtix05mns.cloudfront.net/signup
 
 ### 🖼️ Screenshots
 
