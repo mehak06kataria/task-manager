@@ -93,6 +93,7 @@ npm run test
 
 📁 Folder Structure
 
+'''
 src/
 ├── components/       # UI Components (TaskCard, Dashboard, etc.)
 ├── pages/            # Route definitions (index.tsx, profile.tsx, etc.)
@@ -101,6 +102,7 @@ src/
 ├── styles/           # Tailwind and global CSS
 ├── utils/            # Utility functions
 └── env.ts            # Environment variable handler
+'''
 
 ### 🗃️ Supabase Database Schema
 
