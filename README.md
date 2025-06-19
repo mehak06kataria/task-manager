@@ -101,27 +101,40 @@ src/
   ├── utils/             # Utility functions
   └── env.ts             # Environment variable handler
 
-Live Link : 👉 https://dr2mvtix05mns.cloudfront.net/signup
+### 🗃️ Supabase Database Schema
+
+Below is the ERD (Entity-Relationship Diagram) of the database schema used in this project:
+
+<img src="/schema-diagram.png" alt="Supabase Schema Diagram" width="600" />
+
+This schema includes:
+- **tasks** – task-specific data like title, due date, priority, status
+- **projects** – project groupings for tasks
+- **profiles** – user profile metadata linked via foreign keys
+
 
 ### 🖼️ Screenshots
 
-#### Dashboard  
-![Dashboard](./dashboard.png)
+#### 📊 Dashboard  
+![Dashboard](/dashboard.png)
 
-#### Calendar Picker  
-![Calendar](./calendar.png)
+#### 🗓️ Calendar Picker  
+![Calendar Picker](/calendar.png)
 
-#### Priority Dropdown  
-![Priority](./priority-dropdown.png)
+#### ⬇️ Priority Dropdown  
+![Priority Dropdown](/priority-dropdown.png)
 
-#### Profile  
-![Profile](./profile.png)
+#### 👤 Profile  
+![Profile Page](/profile.png)
 
-#### Login  
-![Login](./login.png)
+#### 🔐 Login  
+![Login Page](/login.png)
 
-#### Signup  
-![Signup](./signup.png)
+#### 📝 Signup  
+![Signup Page](/signup.png)
+
+
+Live Link : 👉 https://dr2mvtix05mns.cloudfront.net/signup
 
 
 📌 Notes
