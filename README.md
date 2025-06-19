@@ -91,15 +91,16 @@ Unit tests are written using Vitest and React Testing Library.
 
 npm run test
 
-🧱 Folder Structure
+📁 Folder Structure
 
 src/
-  ├── components/        # UI Components (TaskCard, Dashboard, etc.)
-  ├── pages/             # Route definitions (index.tsx, profile.tsx, etc.)
-  ├── server/api/        # tRPC API endpoints
-  ├── styles/            # Tailwind and global styles
-  ├── utils/             # Utility functions
-  └── env.ts             # Environment variable handler
+├── components/       # UI Components (TaskCard, Dashboard, etc.)
+├── pages/            # Route definitions (index.tsx, profile.tsx, etc.)
+├── server/
+│   └── api/          # tRPC API endpoints
+├── styles/           # Tailwind and global CSS
+├── utils/            # Utility functions
+└── env.ts            # Environment variable handler
 
 ### 🗃️ Supabase Database Schema
 
