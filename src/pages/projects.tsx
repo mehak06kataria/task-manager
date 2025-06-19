@@ -62,24 +62,24 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen p-6 bg-gray-100">
-      <h1 className="text-2xl font-bold mb-4">My Projects</h1>
+    <div className="min-h-screen bg-gray-100 p-6">
+      <h1 className="mb-4 text-2xl font-bold">My Projects</h1>
 
       {/* Create Project */}
       <form
         onSubmit={createProject}
-        className="mb-6 bg-white p-4 rounded shadow space-y-4"
+        className="mb-6 space-y-4 rounded bg-white p-4 shadow"
       >
         <h2 className="text-lg font-semibold">Create New Project</h2>
         <input
           name="name"
           placeholder="Project name"
-          className="w-full border px-3 py-2 rounded"
+          className="w-full rounded border px-3 py-2"
           required
         />
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
         >
           Add Project
         </button>
@@ -93,7 +93,7 @@ export default function ProjectsPage() {
       ) : (
         <ul className="space-y-4">
           {projects.map((project) => (
-            <li key={project.id} className="p-4 bg-white rounded shadow">
+            <li key={project.id} className="rounded bg-white p-4 shadow">
               <h3 className="text-lg font-semibold">{project.name}</h3>
               <p className="text-sm text-gray-500">
                 Created at: {new Date(project.created_at).toLocaleString()}

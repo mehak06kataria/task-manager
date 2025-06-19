@@ -8,7 +8,9 @@ export default function ProfilePage() {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (user) {
         setEmail(user.email || "");
         setUid(user.id);
@@ -26,28 +28,35 @@ export default function ProfilePage() {
   }, []);
 
   const saveName = async () => {
-    await supabase
-      .from("profiles")
-      .update({ name })
-      .eq("id", uid);
+    await supabase.from("profiles").update({ name }).eq("id", uid);
     alert("✅ Name updated");
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Your Profile</h1>
-      <p><strong>Email:</strong> {email}</p>
-      <p><strong>UID:</strong> {uid}</p>
-      <div className="mt-4">
-        <label className="block font-semibold mb-1">Name</label>
+    <div className="mx-auto mt-10 max-w-xl rounded bg-white p-8 shadow-md">
+      <h1 className="mb-6 text-3xl font-bold text-gray-800">👤 Your Profile</h1>
+
+      <div className="space-y-4 text-gray-700">
+        <p>
+          <span className="font-semibold">📧 Email:</span> {email}
+        </p>
+        <p>
+          <span className="font-semibold">🆔 UID:</span> {uid}
+        </p>
+      </div>
+
+      <div className="mt-6">
+        <label className="mb-2 block text-sm font-medium text-gray-600">
+          ✏️ Name
+        </label>
         <input
-          className="border p-2 w-full rounded"
+          className="w-full rounded border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Enter your name"
         />
         <button
-          className="mt-3 bg-blue-600 text-white px-4 py-2 rounded"
+          className="mt-4 rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 focus:ring"
           onClick={saveName}
         >
           Save

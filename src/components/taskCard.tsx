@@ -37,18 +37,18 @@ export default function TaskCard({ task, onEdit, onDelete }: Props) {
   } = task;
 
   return (
-    <div className="bg-white rounded shadow-sm border p-4 mb-4 hover:shadow-md transition">
-      <div className="flex justify-between items-start">
+    <div className="mb-4 rounded border bg-white p-4 shadow-sm transition hover:shadow-md">
+      <div className="flex items-start justify-between">
         <div>
           <h3 className="text-lg font-semibold">{title}</h3>
           {project && (
-            <p className="text-sm text-gray-500 mt-1">📁 {project}</p>
+            <p className="mt-1 text-sm text-gray-500">📁 {project}</p>
           )}
         </div>
 
         <div className="flex flex-col items-end gap-1 text-sm">
           <span
-            className={`px-2 py-1 rounded-full capitalize ${priorityColorMap[priority]}`}
+            className={`rounded-full px-2 py-1 capitalize ${priorityColorMap[priority]}`}
           >
             {priority}
           </span>
@@ -69,7 +69,7 @@ export default function TaskCard({ task, onEdit, onDelete }: Props) {
           {tags.split(",").map((tag) => (
             <span
               key={tag.trim()}
-              className="bg-blue-100 text-blue-700 text-xs font-medium px-2 py-1 rounded-full"
+              className="rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700"
             >
               #{tag.trim()}
             </span>
@@ -77,18 +77,20 @@ export default function TaskCard({ task, onEdit, onDelete }: Props) {
         </div>
       )}
 
-      <div className="mt-4 flex justify-between items-center text-sm text-gray-500">
-        <span>Status: <span className="capitalize">{status}</span></span>
+      <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
+        <span>
+          Status: <span className="capitalize">{status}</span>
+        </span>
         <div className="flex gap-3">
           <button
             onClick={() => onEdit(id)}
-            className="text-blue-600 hover:underline font-medium"
+            className="font-medium text-blue-600 hover:underline"
           >
             ✏️ Edit
           </button>
           <button
             onClick={() => onDelete(id)}
-            className="text-red-600 hover:underline font-medium"
+            className="font-medium text-red-600 hover:underline"
           >
             🗑️ Delete
           </button>

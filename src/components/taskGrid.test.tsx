@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Dashboard from "./dashboard";
 import { describe, expect, it, vi } from "vitest";
+import Dashboard from "./TaskGrid";
 
 // Match Task type from your component
 type Task = {
@@ -55,7 +55,11 @@ describe("Dashboard", () => {
     const handleDelete = vi.fn();
 
     render(
-      <Dashboard tasks={mockTasks} onEdit={handleEdit} onDelete={handleDelete} />
+      <Dashboard
+        tasks={mockTasks}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+      />,
     );
 
     const editButtons = screen.getAllByRole("button", { name: /edit/i });

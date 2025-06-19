@@ -21,7 +21,7 @@ type DashboardProps = {
 const Dashboard: React.FC<DashboardProps> = ({ tasks, onEdit, onDelete }) => {
   return (
     <div className="p-4 sm:p-6 md:p-8">
-      <h1 className="text-3xl font-bold mb-6 flex items-center gap-2">
+      <h1 className="mb-6 flex items-center gap-2 text-3xl font-bold">
         📋 Dashboard
         <span className="text-sm font-medium text-gray-500">
           ({tasks.length} {tasks.length === 1 ? "task" : "tasks"})
@@ -29,7 +29,7 @@ const Dashboard: React.FC<DashboardProps> = ({ tasks, onEdit, onDelete }) => {
       </h1>
 
       {tasks.length === 0 ? (
-        <div className="text-center text-gray-400 mt-12">
+        <div className="mt-12 text-center text-gray-400">
           <p className="text-lg">No tasks found.</p>
           <p className="text-sm">You can create a new task to get started.</p>
         </div>

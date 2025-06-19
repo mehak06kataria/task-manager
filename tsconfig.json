@@ -2,11 +2,7 @@
   "compilerOptions": {
     /* Language and Module settings */
     "target": "ESNext",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ES2022"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "jsx": "preserve",
@@ -26,15 +22,11 @@
         "name": "next"
       }
     ],
-    "types": [
-      "sst"
-    ],
+    "types": ["sst"],
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
     "isolatedModules": true
   },
@@ -48,7 +40,5 @@
     "**/*.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
