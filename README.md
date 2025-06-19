@@ -100,7 +100,30 @@ src/
   ├── styles/            # Tailwind and global styles
   ├── utils/             # Utility functions
   └── env.ts             # Environment variable handler
-  
+
+Live Link : 👉 https://d3w2rrwlqh0o7h.cloudfront.net/signup
+
+### 🖼️ Screenshots
+
+#### Dashboard  
+![Dashboard](./dashboard.png)
+
+#### Calendar Picker  
+![Calendar](./calendar.png)
+
+#### Priority Dropdown  
+![Priority](./priority-dropdown.png)
+
+#### Profile  
+![Profile](./profile.png)
+
+#### Login  
+![Login](./login.png)
+
+#### Signup  
+![Signup](./signup.png)
+
+
 📌 Notes
 Prisma was initially selected but this project uses Supabase for actual DB operations.
 

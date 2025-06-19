@@ -2,15 +2,17 @@ import React from "react";
 import { format } from "date-fns";
 
 type Task = {
-  id: string;
-  title: string;
-  description?: string;
-  dueDate?: string;
-  priority?: "low" | "medium" | "high";
-  status?: string;
-  tags?: string;
-  project?: string;
-};
+    id: string;
+    title: string;
+    description?: string;
+    dueDate?: string;
+    priority?: "low" | "medium" | "high";
+    status?: string;
+    tags?: string;
+    project?: string;
+    assignedTo?: string; // ✅ Add this line
+  };
+  
 
 type Props = {
   task: Task;
@@ -77,25 +79,31 @@ export default function TaskCard({ task, onEdit, onDelete }: Props) {
         </div>
       )}
 
-      <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
-        <span>
-          Status: <span className="capitalize">{status}</span>
-        </span>
-        <div className="flex gap-3">
-          <button
-            onClick={() => onEdit(id)}
-            className="font-medium text-blue-600 hover:underline"
-          >
-            ✏️ Edit
-          </button>
-          <button
-            onClick={() => onDelete(id)}
-            className="font-medium text-red-600 hover:underline"
-          >
-            🗑️ Delete
-          </button>
-        </div>
-      </div>
+<div className="mt-4 text-sm text-gray-500">
+  <div className="flex items-center justify-between">
+    <span>
+      Status: <span className="capitalize">{status}</span>
+    </span>
+    <div className="flex gap-3">
+      <button
+        onClick={() => onEdit(id)}
+        className="font-medium text-blue-600 hover:underline"
+      >
+        ✏️ Edit
+      </button>
+      <button
+        onClick={() => onDelete(id)}
+        className="font-medium text-red-600 hover:underline"
+      >
+        🗑️ Delete
+      </button>
+    </div>
+  </div>
+  {task.assignedTo && (
+    <p className="mt-2">Assigned to: {task.assignedTo}</p>
+  )}
+</div>
+
     </div>
   );
 }

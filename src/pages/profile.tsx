@@ -11,25 +11,28 @@ export default function ProfilePage() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      if (user) {
-        setEmail(user.email || "");
-        setUid(user.id);
 
-        const { data } = await supabase
-          .from("profiles")
-          .select("name")
-          .eq("id", user.id)
-          .single();
+      if (!user) return;
 
-        if (data) setName(data.name || "");
-      }
+      setEmail(user.email ?? "");
+      setUid(user.id);
+
+      const { data } = await supabase
+        .from("profiles")
+        .select("name")
+        .eq("id", user.id)
+        .single();
+
+      if (data) setName(data.name ?? "");
     };
-    fetchProfile();
+
+    void fetchProfile();
   }, []);
 
   const saveName = async () => {
-    await supabase.from("profiles").update({ name }).eq("id", uid);
-    alert("✅ Name updated");
+    const { error } = await supabase.from("profiles").update({ name }).eq("id", uid);
+    if (error) alert("❌ Failed to update name: " + error.message);
+    else alert("✅ Name updated");
   };
 
   return (
@@ -46,13 +49,11 @@ export default function ProfilePage() {
       </div>
 
       <div className="mt-6">
-        <label className="mb-2 block text-sm font-medium text-gray-600">
-          ✏️ Name
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-600">✏️ Name</label>
         <input
           className="w-full rounded border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(() => e.target.value)}
           placeholder="Enter your name"
         />
         <button

@@ -15,20 +15,20 @@ export default function ProjectsPage() {
   const router = useRouter();
 
   useEffect(() => {
-    (async () => {
+    void (async () => {
       const {
         data: { user },
         error,
       } = await supabase.auth.getUser();
 
       if (error || !user) {
-        router.push("/login");
+        void router.push("/login");
       } else {
         setUserId(user.id);
-        fetchProjects(user.id);
+        void fetchProjects(user.id);
       }
     })();
-  }, []);
+  }, [router]);
 
   const fetchProjects = async (uid: string) => {
     setLoading(true);
@@ -42,9 +42,13 @@ export default function ProjectsPage() {
     setLoading(false);
   };
 
-  const createProject = async (e: React.FormEvent) => {
+  const createProject = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const name = (e.currentTarget as any).name.value;
+    const form = e.currentTarget;
+    const nameInput = form.elements.namedItem("name") as HTMLInputElement | null;
+
+    if (!nameInput) return;
+    const name = nameInput.value;
 
     const { error } = await supabase.from("projects").insert([
       {
@@ -56,21 +60,21 @@ export default function ProjectsPage() {
     if (error) {
       alert("Failed to create project: " + error.message);
     } else {
-      fetchProjects(userId!);
-      (e.currentTarget as any).reset();
+      void fetchProjects(userId!);
+      form.reset();
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="mb-4 text-2xl font-bold">My Projects</h1>
+      <h1 className="mb-4 text-3xl font-bold text-gray-800">📁 My Projects</h1>
 
       {/* Create Project */}
       <form
         onSubmit={createProject}
         className="mb-6 space-y-4 rounded bg-white p-4 shadow"
       >
-        <h2 className="text-lg font-semibold">Create New Project</h2>
+        <h2 className="text-lg font-semibold text-gray-700">Create New Project</h2>
         <input
           name="name"
           placeholder="Project name"
